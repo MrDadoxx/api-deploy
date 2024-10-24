@@ -9,11 +9,7 @@ const {
 } = require('./schemas/movieSchema.js')
 const port = process.env.PORT
 
-const ACCEPTED_ORIGINS = [
-  'http://localhost:8080',
-  'http://localhost:1234',
-  'http://midu.dev'
-]
+const ACCEPTED_ORIGINS = ['*']
 
 app.disable('x-powered-by')
 app.use(express.json())
@@ -101,6 +97,6 @@ app.patch('/movies/:id', (request, response) => {
   return response.json(updatedMovie)
 })
 
-app.listen(port, '0.0.0.0', () => {
+app.listen(port, () => {
   console.log(`Server listening at port "${port}"`)
 })
