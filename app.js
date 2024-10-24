@@ -1,12 +1,9 @@
 const express = require('express')
-const movies = require('./text/MOVIES.json')
+const movies = require('./movies.json')
 const crypto = require('node:crypto')
 const cors = require('cors')
 const app = express()
-const {
-  validateMovie,
-  validatePartialMovie
-} = require('./schemas/movieSchema.js')
+const { validateMovie, validatePartialMovie } = require('./schemas/movieSchema.js')
 const port = process.env.PORT ?? 1234
 const ACCEPTED_ORIGINS = [
   'http://localhost:8080',
