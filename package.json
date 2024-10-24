@@ -1,0 +1,40 @@
+{
+  "name": "rest-api-deploy",
+  "version": "1.0.0",
+  "description": "rest-api-deploy",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrDadoxx/nodejs.git"
+  },
+  "keywords": [
+    "practice",
+    "practices",
+    "node",
+    "nodejs",
+    "js",
+    "javascript"
+  ],
+  "author": "MrDadox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MrDadoxx/nodejs/issues"
+  },
+  "homepage": "https://github.com/MrDadoxx/nodejs#readme",
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.21.1",
+    "picocolors": "1.1.0",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "standard": "^17.1.2"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}

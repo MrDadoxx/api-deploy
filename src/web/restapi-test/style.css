@@ -1,0 +1,49 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #ffffffde;
+  background: linear-gradient(50deg, #0c0e1b 0%, #22274a 47%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-height: 100dvh;
+  gap: 2%;
+  padding: 2%;
+  justify-items: center;
+}
+
+.movie {
+  width: 500px;
+  aspect-ratio: 9/10;
+  background-color: rgb(66, 66, 183);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3%;
+  overflow: hidden;
+}
+
+.movie h2 {
+  text-align: center;
+  width: 100%;
+}
+
+.movie img {
+  width: 60%;
+}

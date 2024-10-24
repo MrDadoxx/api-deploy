@@ -1,0 +1,30 @@
+### Get all movies
+GET http://localhost:1234/movies
+
+### Get movie by ID
+GET http://localhost:1234/movies/1
+
+### Get all movies by genre
+GET http://localhost:1234/movies?genre=Action
+
+### Create a movie
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+ "title": "The Shawshank Redemption",
+ "year": 1994,
+ "director": "Frank Darabont",
+ "duration": 142,
+ "poster": "https://i.ebayimg.com/images/g/4goAAOSwMyBe7hnQ/s-l1200.webp",
+ "genre": ["Drama"],
+ "rate": 9.3
+}
+
+### Update a movie
+PATCH http://localhost:1234/movies/5ad1a235-0d9c-410a-b32b-220d91689a08
+Content-Type: application/json
+
+{
+    "title": "hgsdr"
+}
