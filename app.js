@@ -3,8 +3,12 @@ const movies = require('./movies.json')
 const crypto = require('node:crypto')
 const cors = require('cors')
 const app = express()
-const { validateMovie, validatePartialMovie } = require('./schemas/movieSchema.js')
-const port = process.env.PORT ?? 1234
+const {
+  validateMovie,
+  validatePartialMovie
+} = require('./schemas/movieSchema.js')
+const port = process.env.PORT || 3000 // usa el puerto proporcionado por Render o 3000 como fallback
+
 const ACCEPTED_ORIGINS = [
   'http://localhost:8080',
   'http://localhost:1234',
@@ -97,6 +101,6 @@ app.patch('/movies/:id', (request, response) => {
   return response.json(updatedMovie)
 })
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Server listening at http://localhost:${port}`)
 })
