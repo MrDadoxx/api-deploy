@@ -7,7 +7,7 @@ const {
   validateMovie,
   validatePartialMovie
 } = require('./schemas/movieSchema.js')
-const port = process.env.PORT || 3000 // usa el puerto proporcionado por Render o 3000 como fallback
+const port = process.env.PORT
 
 const ACCEPTED_ORIGINS = [
   'http://localhost:8080',
