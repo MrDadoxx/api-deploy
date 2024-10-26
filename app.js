@@ -4,15 +4,14 @@ const port = process.env.PORT || 3001
 const movies = require('./movies.json')
 const crypto = require('node:crypto')
 // const cors = require('cors')
+// const ACCEPTED_ORIGINS = ['*']
 const {
   validateMovie,
   validatePartialMovie
 } = require('./schemas/movieSchema.js')
 
-// const ACCEPTED_ORIGINS = ['*']
-
-// app.disable('x-powered-by')
-// app.use(express.json())
+app.disable('x-powered-by')
+app.use(express.json())
 // app.use(
 //   cors({
 //     origin: (origin, callback) => {
