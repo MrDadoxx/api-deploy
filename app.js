@@ -7,7 +7,7 @@ const {
   validateMovie,
   validatePartialMovie
 } = require('./schemas/movieSchema.js')
-const port = process.env.PORT || 4000
+const port = process.env.PORT || '4000'
 
 const ACCEPTED_ORIGINS = ['*']
 
