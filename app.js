@@ -3,25 +3,25 @@ const app = express()
 const port = process.env.PORT || 3001
 const movies = require('./movies.json')
 const crypto = require('node:crypto')
-const cors = require('cors')
+// const cors = require('cors')
 const {
   validateMovie,
   validatePartialMovie
 } = require('./schemas/movieSchema.js')
 
-const ACCEPTED_ORIGINS = ['*']
+// const ACCEPTED_ORIGINS = ['*']
 
-app.disable('x-powered-by')
-app.use(express.json())
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (ACCEPTED_ORIGINS.includes(origin)) {
-        return callback(null, true)
-      }
-    }
-  })
-)
+// app.disable('x-powered-by')
+// app.use(express.json())
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+//       if (ACCEPTED_ORIGINS.includes(origin)) {
+//         return callback(null, true)
+//       }
+//     }
+//   })
+// )
 
 app.get('/', (_request, response) => {
   response.send('"/movies" to get movies')
