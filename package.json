@@ -1,15 +1,16 @@
 {
-  "name": "rest-api-deploy",
+  "name": "api",
   "version": "1.0.0",
-  "description": "rest-api-deploy",
+  "description": "api",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MrDadoxx/nodejs.git"
+    "url": "git+https://github.com/MrDadoxx/api-deploy.git"
   },
   "keywords": [
     "practice",
@@ -22,9 +23,9 @@
   "author": "MrDadox",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MrDadoxx/nodejs/issues"
+    "url": "https://github.com/MrDadoxx/api-deploy/issues"
   },
-  "homepage": "https://github.com/MrDadoxx/nodejs#readme",
+  "homepage": "https://github.com/MrDadoxx/api-deploy#readme",
   "dependencies": {
     "cors": "2.8.5",
     "express": "4.21.1",

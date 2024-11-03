@@ -1,104 +1,20 @@
-const express = require('express')
+import express from 'express'
+import { moviesRouter } from './routes/movies.route.js'
+import setServerSettings from './utilities/setServerSettings.js'
+
 const app = express()
-const port = process.env.PORT || 3001
-const movies = require('./movies.json')
-const crypto = require('node:crypto')
-// const cors = require('cors')
-// const ACCEPTED_ORIGINS = ['*']
-const {
-  validateMovie,
-  validatePartialMovie
-} = require('./schemas/movieSchema.js')
+const port = process.env.PORT || 1234
 
 app.disable('x-powered-by')
 app.use(express.json())
-// app.use(
-//   cors({
-//     origin: (origin, callback) => {
-//       if (ACCEPTED_ORIGINS.includes(origin)) {
-//         return callback(null, true)
-//       }
-//     }
-//   })
-// )
+app.use('/movies', moviesRouter)
 
 app.get('/', (_request, response) => {
   response.send('"/movies" to get movies')
 })
 
-app.get('/movies', (request, response) => {
-  const { genre } = request.query
-  let filteredMovies = []
-
-  if (genre) {
-    filteredMovies = movies.filter(movie =>
-      movie.genre.some(
-        movieGenre => movieGenre.toLowerCase() === genre.toLowerCase()
-      )
-    )
-  } else {
-    filteredMovies = movies
-  }
-
-  response.json(filteredMovies)
-})
-
-app.post('/movies', (request, response) => {
-  const result = validateMovie(request.body)
-
-  if (result.error) {
-    return response
-      .status(400)
-      .json({ error: JSON.parse(result.error.message) })
-  }
-
-  const newMovie = {
-    id: crypto.randomUUID(),
-    ...result.data
-  }
-
-  movies.push(newMovie)
-  response.status(201).json(newMovie)
-})
-
-app.get('/movies/:id', (request, response) => {
-  const { id } = request.params
-  const movie = movies.find(movie => movie.id === id)
-  if (movie) {
-    response.json(movie)
-  } else {
-    response.status(404).json({ Error: '404, movie not found' })
-  }
-})
-
-app.patch('/movies/:id', (request, response) => {
-  const result = validatePartialMovie(request.body)
-
-  if (!result.success) {
-    return response
-      .status(400)
-      .json({ error: JSON.parse(result.error.message) })
-  }
-
-  const { id } = request.params
-  const movieIndex = movies.findIndex(movie => movie.id === id)
-
-  if (movieIndex === -1) {
-    return response.status(404).json({ message: 'Movie not found' })
-  }
-
-  const updatedMovie = {
-    ...movies[movieIndex],
-    ...result.data
-  }
-
-  movies[movieIndex] = updatedMovie
-  return response.json(updatedMovie)
-})
-
 const server = app.listen(port, () =>
-  console.log(`Example app listening on port ${port}!`)
+  console.log(`Example app listening on port http://localhost:${port}/`)
 )
 
-server.keepAliveTimeout = 120 * 1000
-server.headersTimeout = 120 * 1000
+setServerSettings(server)

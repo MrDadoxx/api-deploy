@@ -1,4 +1,4 @@
-const zod = require('zod')
+import zod from 'zod'
 
 const genres = [
   'Action',
@@ -25,12 +25,10 @@ const movieSchema = zod.object({
   genre: zod.array(zod.enum(genres))
 })
 
-function validateMovie (object) {
+export function validateMovie (object) {
   return movieSchema.safeParse(object)
 }
 
-function validatePartialMovie (object) {
+export function validatePartialMovie (object) {
   return movieSchema.partial().safeParse(object)
 }
-
-module.exports = { validateMovie, validatePartialMovie }
